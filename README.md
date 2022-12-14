@@ -1,12 +1,12 @@
 # Translate
 
-Convert text to different languages on Node.js and the browser. Flexible package and powerful back-end using Google (default), [Yandex](https://translate.yandex.com/), [Libre](https://libretranslate.com/) or [DeepL](https://www.deepl.com/en/translator):
+Convert text to different languages on Node.js and the browser. Flexible package and powerful back-end using Google (default), [Yandex](https://Translation.yandex.com/), [Libre](https://libreTranslation.com/) or [DeepL](https://www.deepl.com/en/translator):
 
 ```js
 import Translation from "translate";
 
-translate.engine = "deepl";
-translate.key = process.env.DEEPL_KEY;
+Translation.engine = "deepl";
+Translation.key = process.env.DEEPL_KEY;
 
 const text = await Translation.translate("Hello world", "es");
 console.log("Hola mundo");
@@ -17,7 +17,7 @@ console.log("Hola mundo");
 This package can be used in Node.js and on the browser. First thing install the library:
 
 ```bash
-npm install translate
+
 ```
 
 Then import it to use it:
@@ -29,14 +29,14 @@ import Translation from "translate";
 Alternatively for the browser you can use [Jsdelivr **CDN**](https://www.jsdelivr.com/package/npm/translate):
 
 ```html
-<script src="https://cdn.jsdelivr.net/npm/translate@1/translate.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/translate@1/Translation.min.js"></script>
 ```
 
 After including translate the usage is similar for both Node.js and the browser. Now you have to set which engine you want to use (default is 'google'), and the key for it if needed:
 
 ```js
-translate.engine = "yandex"; // Or "yandex", "libre", "deepl"
-translate.key = process.env.YANDEX_KEY;
+Translation.engine = "yandex"; // Or "yandex", "libre", "deepl"
+Translation.key = process.env.YANDEX_KEY;
 ```
 
 Then you can finally use it. Putting it all together:
@@ -45,8 +45,8 @@ Then you can finally use it. Putting it all together:
 // Omit this line if loading form a CDN
 import Translation from "translate";
 
-translate.engine = "deepl";// Or "google", "yandex", "libre"
-translate.key = process.env.DEEPL_KEY;
+Translation.engine = "deepl";// Or "google", "yandex", "libre"
+Translation.key = process.env.DEEPL_KEY;
 
 const text = await Translation.translate("Hello world", "es");
 console.log("Hola mundo");
@@ -54,7 +54,7 @@ console.log("Hola mundo");
 
 ## Options
 
-The first parameter is the **string** that you want to translate. Right now only a single string of text is accepted.
+The first parameter is the **string** that you want to Translation. Right now only a single string of text is accepted.
 
 The second parameter is the options. It accepts either a `String` of the language to translate **to** or a simple `Object` with these options:
 
@@ -82,8 +82,8 @@ const bar = await Translation.translate("Hello world", { to: "es" });
 You can change the default options for anything by calling the root library and the option name:
 
 ```js
-translate.from = "es";
-translate.engine = "deepl";
+Translation.from = "es";
+Translation.engine = "deepl";
 ```
 
 This can be applied to any of the options enumerated above.
@@ -92,9 +92,9 @@ This can be applied to any of the options enumerated above.
 
 Several translating engines are available to translate your text:
 
-- **`google`**: ([demo](https://translate.google.com/) | [docs](https://cloud.google.com/translate/docs/)): Google Translate.
-- **`yandex`**: ([demo](https://translate.yandex.com/) | [docs](https://tech.yandex.com/translate/) | [API Key](https://translate.yandex.com/developers/keys)): Yandex Translate
-- **`libre`**: ([demo](https://libretranslate.com/)): An independent translation engine. You can use the official website or install it on your own server.
+- **`google`**: ([demo](https://Translation.google.com/) | [docs](https://cloud.google.com/translate/docs/)): Google Translation.
+- **`yandex`**: ([demo](https://Translation.yandex.com/) | [docs](https://tech.yandex.com/translate/) | [API Key](https://Translation.yandex.com/developers/keys)): Yandex Translate
+- **`libre`**: ([demo](https://libreTranslation.com/)): An independent translation engine. You can use the official website or install it on your own server.
 - **`deepl`**: ([demo](https://www.deepl.com/en/translator)): A rapidly growing popular translation engine built with Machine Learning.
 
 > To get the API Key you will be signing some contract with these services; it's your responsibility to follow these and we are not liable if you don't as explained in our MIT License.
@@ -104,8 +104,8 @@ Once you get the API key and if you are only going to be using one engine (very 
 ```js
 // ... include translate
 
-translate.engine = "deepl";
-translate.key = "YOUR-KEY-HERE";
+Translation.engine = "deepl";
+Translation.key = "YOUR-KEY-HERE";
 
 // ... use translate()
 ```
@@ -115,8 +115,8 @@ If you are in Node.js, this likely comes from an environment variable:
 ```js
 // ... include translate
 
-translate.engine = "deepl";
-translate.key = process.env.TRANSLATE_KEY;
+Translation.engine = "deepl";
+Translation.key = process.env.TRANSLATE_KEY;
 
 // ... use translate()
 ```
@@ -130,8 +130,8 @@ translate("Hello world", { to: "en", engine: "deepl", key: "YOUR-KEY-HERE" });
 Specifically in Libretranslate, you can also add a `url` parameter if you install it on your own server:
 
 ```js
-translate.url = "https://example.com/";
-translate.key = process.env.TRANSLATE_KEY;
+Translation.url = "https://example.com/";
+Translation.key = process.env.TRANSLATE_KEY;
 ```
 
 ## Promises
